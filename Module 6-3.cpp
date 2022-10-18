@@ -16,16 +16,20 @@
 
 int main()
 {
-	std::cout << "Введите число: ";
-	int number;
-	std::cin >> number;
+	std::cout << "Введите имя должника: ";
+	std::string nameDebtor;
+	std::cin >> nameDebtor;
+	std::cout << "Введите сумму долга: ";
+	// accountBalanse устанавливаем 0 для корректной обработки выхода по break 
+	int totalDebt, accountBalanse = 0;
+	std::cin >> totalDebt;
+	do {
+		if (totalDebt < 0) { std::cout << "Сумма долга должна быть положительной!\n"; break; };
+		std::cout << nameDebtor << " введите сумму погашения: ";
+		int repaymentAmount;
+		std::cin >> repaymentAmount;
+		totalDebt -= repaymentAmount;
+		std::cout << nameDebtor << " осталось выплатить: " << totalDebt;
+	} while (totalDebt <= 0);
 
-	//int coutDigit = 0;
-	//// применяем do while чтобы учесть 0
-	//do {
-	//	++coutDigit;
-	//	number /= 10;
-	//} while (number != 0);
-
-	//std::cout << "Количество цифр в введёном числе - " << coutDigit << "\n";
 }
