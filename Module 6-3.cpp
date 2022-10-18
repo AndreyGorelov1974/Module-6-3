@@ -27,12 +27,11 @@ int main()
 
 	else {
 		while (totalDebt > 0) {
+			std::cout << "Осталось выплатить: " << totalDebt << "\n";
 			std::cout << "Введите сумму погашения: ";
 			int repaymentAmount;
 			std::cin >> repaymentAmount;
 			totalDebt -= repaymentAmount;
-
-			if (totalDebt >= 0) std::cout << "Осталось выплатить: " << totalDebt << "\n";
 		}
 
 		int accountBalanse = 0;
