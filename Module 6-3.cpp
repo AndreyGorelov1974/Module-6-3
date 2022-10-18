@@ -20,8 +20,7 @@ int main()
 	std::string nameDebtor;
 	std::cin >> nameDebtor;
 	std::cout << "Введите сумму долга: ";
-	// accountBalanse устанавливаем 0 для корректной обработки выхода по break 
-	int totalDebt, accountBalanse = 0;
+	int totalDebt;
 	std::cin >> totalDebt;
 
 	if (totalDebt < 0) { std::cout << "Сумма долга должна быть положительной!\n"; }
@@ -32,11 +31,13 @@ int main()
 			int repaymentAmount;
 			std::cin >> repaymentAmount;
 			totalDebt -= repaymentAmount;
-			if (totalDebt >= 0) std::cout << "Осталось выплатить: " << totalDebt << "\n";
 
+			if (totalDebt >= 0) std::cout << "Осталось выплатить: " << totalDebt << "\n";
 		}
 
+		int accountBalanse = 0;
 		if (totalDebt < 0) accountBalanse = abs(totalDebt);
+
 		std::cout << nameDebtor << " поздравляем! Вы погасили ваш долг.";
 		if (accountBalanse != 0) std::cout << " На Вашем счету осталось: " << accountBalanse << "\n";
 	}
