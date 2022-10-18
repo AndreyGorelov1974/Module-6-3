@@ -20,12 +20,12 @@ int main()
 	int number;
 	std::cin >> number;
 
-	int coutDigit = 0;
-	// применяем do while чтобы учесть 0
-	do {
-		++coutDigit;
-		number /= 10;
-	} while (number != 0);
+	//int coutDigit = 0;
+	//// применяем do while чтобы учесть 0
+	//do {
+	//	++coutDigit;
+	//	number /= 10;
+	//} while (number != 0);
 
-	std::cout << "Количество цифр в введёном числе - " << coutDigit << "\n";
+	//std::cout << "Количество цифр в введёном числе - " << coutDigit << "\n";
 }
