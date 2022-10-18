@@ -1,4 +1,4 @@
-﻿/*Задание 3. Коллекторы
+/*Задание 3. Коллекторы
 Что нужно сделать
 Напишите робота для коллекторов.В самом начале он спрашивает имя должника и сумму долга, а затем начинает требовать у него погашения долга до тех пор, пока тот не будет погашен полностью.
 Сумма долга должна уменьшаться, если пользователь ввёл сумму, меньшую чем сумма долга.Если пользователь внёс большую сумму, чем требуется для погашения,
@@ -23,13 +23,22 @@ int main()
 	// accountBalanse устанавливаем 0 для корректной обработки выхода по break 
 	int totalDebt, accountBalanse = 0;
 	std::cin >> totalDebt;
-	do {
-		if (totalDebt < 0) { std::cout << "Сумма долга должна быть положительной!\n"; break; };
-		std::cout << nameDebtor << " введите сумму погашения: ";
-		int repaymentAmount;
-		std::cin >> repaymentAmount;
-		totalDebt -= repaymentAmount;
-		std::cout << nameDebtor << " осталось выплатить: " << totalDebt;
-	} while (totalDebt <= 0);
+
+	if (totalDebt < 0) { std::cout << "Сумма долга должна быть положительной!\n"; }
+
+	else {
+		while (totalDebt > 0) {
+			std::cout << "Введите сумму погашения: ";
+			int repaymentAmount;
+			std::cin >> repaymentAmount;
+			totalDebt -= repaymentAmount;
+			if (totalDebt >= 0) std::cout << "Осталось выплатить: " << totalDebt << "\n";
+
+		}
+
+		if (totalDebt < 0) accountBalanse = abs(totalDebt);
+		std::cout << nameDebtor << " поздравляем! Вы погасили ваш долг.";
+		if (accountBalanse != 0) std::cout << " На Вашем счету осталось: " << accountBalanse << "\n";
+	}
 
 }
